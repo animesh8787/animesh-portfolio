@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-graphite text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-signal/30 text-ink;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-hairline rounded-full;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5b8def;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .metric-tag {
+    @apply inline whitespace-nowrap font-mono text-[11px] tracking-wide text-signal-bright bg-signal/10 border border-signal/25 rounded px-1.5 py-0.5;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-[11px] tracking-[0.2em] uppercase text-muted;
+  }
+
+  .card {
+    @apply bg-surface border border-hairline rounded-xl;
+  }
+
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute left-0 -bottom-0.5 w-0 h-px bg-signal transition-all duration-300;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
