@@ -3,6 +3,7 @@ import { projects } from "../data/content";
 import { EASE } from "../lib/motion";
 
 const secondary = projects.filter((p) => !p.featured);
+const STACK_PREVIEW_COUNT = 4;
 
 export default function OtherProjects() {
   return (
@@ -27,38 +28,49 @@ export default function OtherProjects() {
           Shorter projects, still shipped end-to-end.
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {secondary.map((project, i) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className="card p-5 flex flex-col transition-all duration-500 ease-premium hover:border-signal/30 hover:-translate-y-1 hover:shadow-card"
-            >
-              <h3 className="font-display text-xl mb-2">{project.name}</h3>
-              <p className="text-muted text-sm leading-relaxed mb-4 flex-1">{project.tagline}</p>
-              <ul className="space-y-2 mb-4">
-                {project.points.slice(0, 2).map((point, j) => (
-                  <li key={j} className="text-xs text-ink/70 leading-relaxed flex gap-2">
-                    <span className="text-signal shrink-0">—</span>
-                    <span>
-                      {point.text}
-                      {point.metric && <span className="metric-tag ml-1.5">{point.metric}</span>}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {secondary.map((project, i) => {
+            const highlights = project.points.filter((p) => p.highlight).slice(0, 2);
+            const visibleStack = project.stack.slice(0, STACK_PREVIEW_COUNT);
+            const hiddenStackCount = project.stack.length - visibleStack.length;
+
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                className="card p-5 flex flex-col transition-all duration-500 ease-premium hover:border-signal/30 hover:-translate-y-1 hover:shadow-card"
+              >
+                <h3 className="font-display text-xl mb-2">{project.name}</h3>
+                <p className="text-muted text-sm leading-relaxed mb-4 flex-1">{project.tagline}</p>
+                <ul className="space-y-2.5 mb-4">
+                  {highlights.map((point, j) => (
+                    <li key={j} className="text-xs text-ink/70 leading-relaxed flex gap-2">
+                      <span className="text-signal shrink-0" aria-hidden="true">
+                        ›
+                      </span>
+                      <div>
+                        <p>{point.text}</p>
+                        {point.metric && <span className="metric-tag mt-1">{point.metric}</span>}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-hairline">
+                  {visibleStack.map((s) => (
+                    <span key={s} className="font-mono text-[10px] text-faint">
+                      {s}
                     </span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-hairline">
-                {project.stack.slice(0, 4).map((s) => (
-                  <span key={s} className="font-mono text-[10px] text-faint">
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                  ))}
+                  {hiddenStackCount > 0 && (
+                    <span className="font-mono text-[10px] text-faint/70">+{hiddenStackCount} more</span>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

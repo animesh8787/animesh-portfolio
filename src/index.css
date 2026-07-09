@@ -51,7 +51,7 @@
 
 @layer components {
   .metric-tag {
-    @apply inline whitespace-nowrap font-mono text-[11px] tracking-wide text-signal-bright bg-signal/10 border border-signal/25 rounded px-1.5 py-0.5;
+    @apply inline-block break-words font-mono text-[11px] tracking-wide text-signal-bright bg-signal/10 border border-signal/25 rounded px-1.5 py-0.5;
   }
 
   .section-eyebrow {

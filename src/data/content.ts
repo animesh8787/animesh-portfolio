@@ -11,55 +11,119 @@ export const projects = [
   {
     id: "jarvis",
     name: "Ashwatthama",
-    tagline: "A local-first AI desktop assistant — nothing you say to it ever leaves your machine.",
+    tagline:
+      "A local-first AI desktop assistant. Everything it hears, transcribes, and remembers stays on your machine.",
     stack: ["Electron", "React", "TypeScript", "FastAPI", "Vosk", "Coqui XTTS v2", "ChromaDB"],
     featured: true,
     points: [
-      { text: "Three-layer architecture — Electron/React frontend, Python FastAPI backend, and a local AI inference layer, wired together over WebSockets and a JWT-authenticated IPC bridge with renderer context isolation.", metric: null },
-      { text: "Offline streaming speech recognition with a WebRTC VAD noise gate, plus wake-word detection", metric: "sub-200ms ASR latency" },
-      { text: "Voice-cloned text-to-speech from a 3-second sample", metric: "<300ms TTS latency" },
-      { text: "Semantic memory over conversation history using vector search", metric: "ChromaDB · top-K cosine" },
-      { text: "Session security hardened with authenticated encryption, OS-level key storage, and per-session token rotation", metric: "Fernet · AES-128-CBC + HMAC-SHA256" },
+      {
+        text: "Three layers talk to each other over WebSockets and a JWT-authenticated IPC bridge: an Electron and React frontend, a Python FastAPI backend, and a local inference layer with renderer context isolation.",
+        metric: null,
+        highlight: false,
+      },
+      {
+        text: "Speech recognition runs fully offline, with a WebRTC noise gate and wake-word detection layered on top.",
+        metric: "sub-200ms ASR latency",
+        highlight: true,
+      },
+      {
+        text: "Text-to-speech clones a voice from a 3-second sample.",
+        metric: "<300ms TTS latency",
+        highlight: true,
+      },
+      {
+        text: "Conversation history is embedded and searched with a vector database, so the assistant actually remembers context instead of starting fresh every session.",
+        metric: "ChromaDB · top-K cosine",
+        highlight: false,
+      },
+      {
+        text: "Sessions are hardened with authenticated encryption, OS-level key storage, and token rotation on every login.",
+        metric: "Fernet · AES-128-CBC + HMAC-SHA256",
+        highlight: false,
+      },
     ],
     links: { site: "https://ashwatthama.dev" },
   },
   {
     id: "crack-detection",
     name: "Infrastructure Crack Detection",
-    tagline: "Research internship work benchmarking deep learning models for real-time structural health monitoring, co-authored into a paper under review at Elsevier.",
+    tagline:
+      "Research internship work on real-time structural health monitoring. Benchmarked deep learning models for crack detection, co-authored into a paper now under review at Elsevier.",
     stack: ["PyTorch", "ResNet50", "VGG19-UNet", "YOLOv7", "OpenCV"],
     featured: true,
     points: [
-      { text: "Benchmarked a custom DCNN, VGG19-UNet, and ResNet50-UNet for binary crack classification on a 40,000-image dataset", metric: "99.9% val accuracy" },
-      { text: "Built the augmentation pipeline (CLAHE, RandomResizedCrop, Otsu thresholding, ColorJitter) that got the model there", metric: null },
-      { text: "Integrated the winning model into a real-time detection pipeline on an RTX 2080 Ti", metric: "97.7% mAP · 100+ epochs" },
-      { text: "Automated crack-width measurement with IRC:SP:83-aligned alerting via contour analysis", metric: null },
+      {
+        text: "Benchmarked a custom DCNN, VGG19-UNet, and ResNet50-UNet for binary crack classification on a 40,000-image dataset.",
+        metric: "99.9% val accuracy",
+        highlight: true,
+      },
+      {
+        text: "Built the augmentation pipeline that got the model there: CLAHE, RandomResizedCrop, Otsu thresholding, ColorJitter.",
+        metric: null,
+        highlight: false,
+      },
+      {
+        text: "Integrated the winning model into a real-time detection pipeline on an RTX 2080 Ti.",
+        metric: "97.7% mAP · 100+ epochs",
+        highlight: true,
+      },
+      {
+        text: "Automated crack-width measurement with IRC:SP:83-aligned alerting through contour analysis.",
+        metric: null,
+        highlight: false,
+      },
     ],
     links: {},
   },
   {
     id: "resume-screening",
     name: "AI-Driven Resume Screening System",
-    tagline: "An NLP pipeline that reads unstructured resumes and scores candidates against a role — built twice, once in Python/FastAPI and once in Java/Spring, to compare architectures.",
+    tagline:
+      "An NLP pipeline that reads unstructured resumes and scores candidates against a role. Built it twice, once in Python and FastAPI, once in Java and Spring, to compare how each architecture held up.",
     stack: ["Python", "FastAPI", "HuggingFace Transformers", "spaCy", "PostgreSQL"],
     featured: false,
     points: [
-      { text: "Transformer embeddings + spaCy NER extract skills, experience, and projects from raw resume text", metric: null },
-      { text: "Custom scoring pipeline cut manual screening time", metric: "70%+ reduction" },
-      { text: "Stateless, horizontally scalable FastAPI service with a PostgreSQL backend, optimized indexes and CTEs", metric: null },
+      {
+        text: "Transformer embeddings and spaCy NER extract skills, experience, and projects from raw resume text.",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Custom scoring pipeline cut manual screening time.",
+        metric: "70%+ reduction",
+        highlight: true,
+      },
+      {
+        text: "Stateless, horizontally scalable FastAPI service with a PostgreSQL backend, optimized indexes and CTEs.",
+        metric: null,
+        highlight: false,
+      },
     ],
     links: {},
   },
   {
     id: "devrelease",
     name: "DevRelease Tracker",
-    tagline: "A release-management dashboard mirroring real DevSecOps workflows — versioning, deployment states, environment tracking.",
+    tagline:
+      "A release-management dashboard that mirrors real DevSecOps workflows: versioning, deployment states, environment tracking.",
     stack: ["Java", "Spring Boot", "REST API", "React", "Hibernate/JPA"],
     featured: false,
     points: [
-      { text: "Layered Controller–Service–Repository backend with full CRUD across Projects, Releases, and Deployments", metric: null },
-      { text: "Deployment state machine (PENDING → IN_PROGRESS → SUCCESS/FAILED) with semantic versioning enforced via Bean Validation", metric: null },
-      { text: "React dashboard visualizing pipeline and deployment status in real time; H2 in dev, MySQL-ready for production", metric: null },
+      {
+        text: "Layered backend (Controller, Service, Repository) with full CRUD across projects, releases, and deployments.",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Deployment state machine (PENDING → IN_PROGRESS → SUCCESS/FAILED) with semantic versioning enforced via Bean Validation.",
+        metric: null,
+        highlight: false,
+      },
+      {
+        text: "React dashboard visualizes pipeline and deployment status in real time. Runs on H2 in development, MySQL-ready for production.",
+        metric: null,
+        highlight: true,
+      },
     ],
     links: {},
   },
@@ -70,19 +134,27 @@ export const projects = [
     stack: ["XGBoost", "LightGBM", "CatBoost", "Optuna", "SHAP"],
     featured: false,
     points: [
-      { text: "Ensemble stacking across three gradient-boosting models, with SHAP-driven feature selection to cut overfitting", metric: "89.89% R²" },
-      { text: "GPU-accelerated Bayesian hyperparameter search with Optuna", metric: "60%+ faster tuning" },
+      {
+        text: "Ensemble stacking across three gradient-boosting models, with SHAP-driven feature selection to cut overfitting.",
+        metric: "89.89% R²",
+        highlight: true,
+      },
+      {
+        text: "GPU-accelerated Bayesian hyperparameter search with Optuna.",
+        metric: "60%+ faster tuning",
+        highlight: true,
+      },
     ],
     links: {},
   },
 ];
 
 export const skills = {
-  "Languages": ["Python", "Java", "C++", "C", "SQL", "TypeScript"],
+  Languages: ["Python", "Java", "C++", "C", "SQL", "TypeScript"],
   "ML / Deep Learning": ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "XGBoost", "LightGBM", "CatBoost", "Optuna", "SHAP"],
   "Vision & NLP": ["CNNs", "ResNet50", "YOLOv7", "VGG19", "UNet", "OpenCV", "HuggingFace Transformers", "spaCy", "NLTK"],
   "Backend & Data": ["FastAPI", "Spring Boot", "REST APIs", "WebSockets", "PostgreSQL", "MySQL", "SQLAlchemy", "Hibernate/JPA"],
-  "Tooling": ["Git", "GitHub Actions", "Electron", "PyInstaller", "Docker-adjacent workflows"],
+  Tooling: ["Git", "GitHub Actions", "Electron", "PyInstaller", "Docker-adjacent workflows"],
 };
 
 export const stats = [

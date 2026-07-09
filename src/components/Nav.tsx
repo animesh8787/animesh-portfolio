@@ -24,18 +24,18 @@ export default function Nav() {
       <div className="max-w-5xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="font-display text-lg tracking-tight text-ink transition-colors duration-300 hover:text-signal-bright"
+          className="font-display text-lg tracking-tight text-ink transition-colors duration-300 hover:text-signal-bright py-2 pr-3 -ml-2 pl-2"
         >
           AD
         </a>
-        <div className="flex items-center gap-5 sm:gap-8">
+        <div className="flex items-center gap-1 sm:gap-2">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted hover:text-ink transition-colors duration-300 link-underline"
+              className="inline-block text-sm text-muted hover:text-ink transition-colors duration-300 px-2.5 py-3 sm:px-3"
             >
-              {l.label}
+              <span className="link-underline">{l.label}</span>
             </a>
           ))}
         </div>

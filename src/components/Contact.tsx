@@ -66,7 +66,7 @@ export default function Contact() {
                   type="button"
                   onClick={() => copy(contact.email)}
                   aria-label="Copy email address"
-                  className="shrink-0 text-faint hover:text-signal-bright transition-colors duration-300"
+                  className="shrink-0 text-faint hover:text-signal-bright transition-colors duration-300 p-2 -m-2"
                 >
                   {copied ? (
                     <Check className="w-4 h-4 text-sage-bright" />
@@ -101,7 +101,7 @@ export default function Contact() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-muted transition-colors duration-300"
+            className="flex items-center gap-1.5 hover:text-muted transition-colors duration-300 py-2 px-1 -mx-1"
           >
             Back to top <ArrowUp className="w-3.5 h-3.5" />
           </button>
