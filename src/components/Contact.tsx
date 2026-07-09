@@ -1,106 +1,100 @@
 import { motion } from "framer-motion";
-import { ArrowUp, Check, Copy, MapPin } from "lucide-react";
+import { ArrowUp, Check, Copy, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
-import PillButton from "./ui/PillButton";
-import { useMagnetic } from "../hooks/useMagnetic";
 import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 import { contact } from "../data/content";
 import { EASE } from "../lib/motion";
 
 export default function Contact() {
-  const magnetic = useMagnetic<HTMLAnchorElement>(0.3);
   const { copied, copy } = useCopyToClipboard();
-
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer id="contact" className="relative overflow-hidden">
-      {/* ambient glow — the one warm accent reserved for the site's closing moment */}
-      <div
-        aria-hidden="true"
-        className="absolute left-1/2 top-[30%] h-[460px] w-[460px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-signal/10 blur-[110px] animate-pulseGlow"
-      />
-
-      {/* oversized ghost "@" — the signature glyph of everything this section is about */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-6 md:top-10 flex justify-center overflow-hidden select-none"
-      >
-        <span className="font-display text-[clamp(9rem,32vw,22rem)] leading-none text-ink/[0.035]">
-          @
-        </span>
-      </div>
-
-      <div className="relative max-w-5xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-16">
-        <motion.p
+    <footer id="contact">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-28">
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="section-eyebrow text-center mb-4"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8"
         >
-          Get in touch
-        </motion.p>
-        <motion.h2
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
-          className="font-display text-3xl md:text-5xl text-center max-w-2xl mx-auto mb-14 text-balance"
-        >
-          Open to research roles, ML engineering, and anything safety-adjacent.
-        </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-          className="flex flex-col items-center mb-16"
-        >
-          <motion.a
-            ref={magnetic.ref}
-            href={`mailto:${contact.email}`}
-            onMouseMove={magnetic.onMouseMove}
-            onMouseLeave={magnetic.onMouseLeave}
-            animate={{ x: magnetic.offset.x, y: magnetic.offset.y }}
-            transition={{ type: "spring", stiffness: 150, damping: 14, mass: 0.4 }}
-            className="group relative inline-block min-w-0 max-w-full break-words font-display text-[clamp(1.85rem,6.5vw,4.25rem)] leading-[1.15] tracking-tight text-ink text-center"
-          >
-            workreachoutanimesh<wbr />@gmail.com
-            <span className="absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 bg-signal-bright transition-transform duration-500 ease-premium group-hover:scale-x-100" />
-          </motion.a>
-
-          <button
-            type="button"
-            onClick={() => copy(contact.email)}
-            className="mt-8 inline-flex items-center gap-2 font-mono text-xs tracking-wide text-muted hover:text-signal-bright transition-colors duration-300"
-          >
-            {copied ? (
-              <Check className="w-3.5 h-3.5 text-sage-bright" />
-            ) : (
-              <Copy className="w-3.5 h-3.5" />
-            )}
-            {copied ? "Copied to clipboard" : "Copy email address"}
-          </button>
+          <p className="section-eyebrow flex items-center gap-2">
+            <span className="text-signal">◆</span> Connect
+          </p>
+          <p className="text-sm text-muted max-w-sm sm:text-right leading-relaxed">
+            Open to research roles, ML engineering, and anything safety-adjacent.
+          </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-20"
+          transition={{ duration: 0.6, delay: 0.08, ease: EASE }}
+          className="card overflow-hidden"
         >
-          <PillButton href={contact.github} size="sm" icon={<GithubIcon className="w-4 h-4" />} external>
-            GitHub
-          </PillButton>
-          <PillButton href={contact.linkedin} size="sm" icon={<LinkedinIcon className="w-4 h-4" />} external>
-            LinkedIn
-          </PillButton>
+          <div className="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-hairline">
+            <a
+              href={contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2"
+            >
+              <p className="section-eyebrow mb-3">LinkedIn</p>
+              <div className="flex items-center gap-2.5 text-base sm:text-lg min-w-0">
+                <LinkedinIcon className="w-4 h-4 text-signal-bright shrink-0" />
+                <span className="text-ink truncate group-hover:text-signal-bright transition-colors duration-300">
+                  Animesh Dhiman
+                </span>
+              </div>
+            </a>
+
+            <div className="p-6">
+              <p className="section-eyebrow mb-3">Email</p>
+              <div className="flex items-center justify-between gap-3">
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="flex items-center gap-2.5 text-base sm:text-lg min-w-0 flex-1 text-ink hover:text-signal-bright transition-colors duration-300"
+                >
+                  <Mail className="w-4 h-4 text-signal-bright shrink-0" />
+                  <span className="truncate min-w-0 flex-1" title={contact.email}>
+                    {contact.email}
+                  </span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => copy(contact.email)}
+                  aria-label="Copy email address"
+                  className="shrink-0 text-faint hover:text-signal-bright transition-colors duration-300"
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4 text-sage-bright" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <a
+              href={contact.github}
+              target="_blank"
+              rel="noreferrer"
+              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2"
+            >
+              <p className="section-eyebrow mb-3">GitHub</p>
+              <div className="flex items-center gap-2.5 text-base sm:text-lg min-w-0">
+                <GithubIcon className="w-4 h-4 text-signal-bright shrink-0" />
+                <span className="text-ink truncate group-hover:text-signal-bright transition-colors duration-300">
+                  animesh8787
+                </span>
+              </div>
+            </a>
+          </div>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-8 border-t border-hairline text-faint text-xs font-mono">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-8 mt-10 border-t border-hairline text-faint text-xs font-mono">
           <span className="flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" /> {contact.location}
           </span>

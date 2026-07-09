@@ -96,6 +96,6 @@ export const contact = {
   email: "workreachoutanimesh@gmail.com",
   phone: "+91 94181 79744",
   location: "Una, Himachal Pradesh, India",
-  linkedin: "#", // TODO: paste real LinkedIn URL
-  github: "#", // TODO: paste real GitHub URL
+  linkedin: "https://www.linkedin.com/in/animesh-dhiman-658250311/",
+  github: "https://github.com/animesh8787",
 };
