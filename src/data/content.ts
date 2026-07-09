@@ -161,7 +161,6 @@ export const stats = [
   { value: "200+", label: "LeetCode problems solved" },
   { value: "99.9%", label: "peak model validation accuracy" },
   { value: "1", label: "paper under review at Elsevier" },
-  { value: "2027", label: "graduating, Thapar Institute" },
 ];
 
 export const contact = {

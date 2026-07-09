@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowUp, Check, Copy, Mail, MapPin } from "lucide-react";
+import { ArrowUp, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
-import { useCopyToClipboard } from "../hooks/useCopyToClipboard";
 import { contact } from "../data/content";
 import { EASE } from "../lib/motion";
 
 export default function Contact() {
-  const { copied, copy } = useCopyToClipboard();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
@@ -23,7 +21,8 @@ export default function Contact() {
             <span className="text-signal">◆</span> Connect
           </p>
           <p className="text-sm text-muted max-w-sm sm:text-right leading-relaxed">
-            Open to research roles, ML engineering, and anything safety-adjacent.
+            Looking for opportunities to build meaningful software, learn continuously, and
+            grow alongside exceptional teams.
           </p>
         </motion.div>
 
@@ -50,32 +49,18 @@ export default function Contact() {
               </div>
             </a>
 
-            <div className="p-6">
+            <a
+              href={`mailto:${contact.email}`}
+              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2 active:bg-surface2"
+            >
               <p className="section-eyebrow mb-3">Email</p>
-              <div className="flex items-center justify-between gap-3">
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2.5 text-base sm:text-lg min-w-0 flex-1 text-ink hover:text-signal-bright active:text-signal-bright transition-colors duration-300"
-                >
-                  <Mail className="w-4 h-4 text-signal-bright shrink-0" />
-                  <span className="truncate min-w-0 flex-1" title={contact.email}>
-                    {contact.email}
-                  </span>
-                </a>
-                <button
-                  type="button"
-                  onClick={() => copy(contact.email)}
-                  aria-label="Copy email address"
-                  className="shrink-0 text-muted hover:text-signal-bright active:scale-90 transition-all duration-300 p-2 -m-2"
-                >
-                  {copied ? (
-                    <Check className="w-4 h-4 text-sage-bright" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
+              <div className="flex items-center gap-2.5 text-base sm:text-lg min-w-0">
+                <Mail className="w-4 h-4 text-signal-bright shrink-0" />
+                <span className="text-ink truncate group-hover:text-signal-bright transition-colors duration-300">
+                  Mail
+                </span>
               </div>
-            </div>
+            </a>
 
             <a
               href={contact.github}
@@ -101,11 +86,12 @@ export default function Contact() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-ink active:text-ink transition-colors duration-300 py-2 px-1 -mx-1"
+            className="group flex items-center gap-1.5 hover:text-ink active:text-ink transition-colors duration-300 py-2 px-1 -mx-1"
           >
-            Back to top <ArrowUp className="w-3.5 h-3.5" />
+            Back to top
+            <ArrowUp className="w-3.5 h-3.5 transition-transform duration-300 ease-premium group-hover:-translate-y-0.5" />
           </button>
-          <span>© {new Date().getFullYear()} Animesh Dhiman</span>
+          <span>Designed &amp; Built by Animesh Dhiman</span>
         </div>
       </div>
     </footer>

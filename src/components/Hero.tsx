@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import PillButton from "./ui/PillButton";
 import NodeGraph from "./ui/NodeGraph";
 import { interests, contact } from "../data/content";
-import { EASE, staggerContainer, fadeUp } from "../lib/motion";
+import { staggerContainer, fadeUp } from "../lib/motion";
 
 export default function Hero() {
   const headerRef = useRef<HTMLElement>(null);
@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="relative max-w-5xl mx-auto px-6 md:px-10 py-32 w-full">
         <motion.div variants={staggerContainer(0.12, 0.05)} initial="hidden" animate="show">
           <motion.p variants={fadeUp} className="section-eyebrow mb-5">
-            Computer Science · Thapar Institute · 2027
+            Computer Science · Thapar Institute
           </motion.p>
           <motion.h1
             variants={fadeUp}
@@ -64,8 +64,8 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
-            <PillButton href="#contact" variant="solid" icon={<Mail className="w-4 h-4" />}>
-              Get in touch
+            <PillButton href={`mailto:${contact.email}`} icon={<Mail className="w-4 h-4" />}>
+              Mail
             </PillButton>
             <PillButton href={contact.github} icon={<GithubIcon className="w-4 h-4" />} external>
               GitHub
@@ -75,17 +75,6 @@ export default function Hero() {
             </PillButton>
           </motion.div>
         </motion.div>
-
-        <motion.a
-          href="#work"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.6, ease: EASE }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted hover:text-ink transition-colors duration-300 py-3 px-2"
-        >
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-          <ArrowDown className="w-3.5 h-3.5 animate-floatSoft" />
-        </motion.a>
       </div>
     </header>
   );

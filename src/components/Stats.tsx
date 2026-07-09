@@ -26,7 +26,7 @@ function StatItem({ value, label, delay }: { value: string; label: string; delay
 export default function Stats() {
   return (
     <section className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-14 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-14 grid grid-cols-3 gap-6 md:gap-8">
         {stats.map((s, i) => (
           <StatItem key={s.label} value={s.value} label={s.label} delay={i * 0.08} />
         ))}
