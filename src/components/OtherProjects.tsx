@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Badge from "./ui/Badge";
 import ProjectPoint from "./ui/ProjectPoint";
 import { projects } from "../data/content";
 import { EASE } from "../lib/motion";
