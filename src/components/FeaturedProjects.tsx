@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { projects } from "../data/content";
+import { EASE } from "../lib/motion";
 
 const featured = projects.filter((p) => p.featured);
 
@@ -12,6 +13,7 @@ export default function FeaturedProjects() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="section-eyebrow mb-3"
         >
           Selected work
@@ -20,8 +22,8 @@ export default function FeaturedProjects() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
-          className="font-display text-3xl md:text-4xl mb-16 max-w-xl"
+          transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
+          className="font-display text-3xl md:text-4xl mb-16 max-w-xl text-balance"
         >
           Two projects I'd want you to read closely.
         </motion.h2>
@@ -33,7 +35,7 @@ export default function FeaturedProjects() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7, ease: EASE }}
               className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12"
             >
               <div>
@@ -59,7 +61,7 @@ export default function FeaturedProjects() {
                 )}
               </div>
 
-              <div className="card p-6 md:p-7">
+              <div className="card p-6 md:p-7 transition-all duration-500 ease-premium hover:border-signal/25 hover:shadow-glow">
                 <ul className="space-y-3.5">
                   {project.points.map((point, i) => (
                     <li key={i} className="flex gap-3 text-sm leading-relaxed text-ink/85">

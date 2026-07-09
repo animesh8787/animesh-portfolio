@@ -28,7 +28,14 @@ export default {
       },
       boxShadow: {
         glow: "0 0 32px rgba(91,141,239,0.18)",
+        glowLg: "0 0 64px rgba(91,141,239,0.16)",
         card: "0 4px 24px rgba(0,0,0,0.35)",
+      },
+      transitionTimingFunction: {
+        // shared "premium" ease — used for every deliberate motion on the
+        // site so hover states, reveals, and page transitions all decelerate
+        // the same way.
+        premium: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         drift: {
@@ -39,10 +46,20 @@ export default {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        floatSoft: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(6px)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.06)" },
+        },
       },
       animation: {
         drift: "drift 7s ease-in-out infinite",
         fadeUp: "fadeUp 0.6s ease-out forwards",
+        floatSoft: "floatSoft 2.6s ease-in-out infinite",
+        pulseGlow: "pulseGlow 6s ease-in-out infinite",
       },
     },
   },

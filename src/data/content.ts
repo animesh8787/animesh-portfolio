@@ -93,7 +93,7 @@ export const stats = [
 ];
 
 export const contact = {
-  email: "animeshdhiman10@gmail.com",
+  email: "workreachoutanimesh@gmail.com",
   phone: "+91 94181 79744",
   location: "Una, Himachal Pradesh, India",
   linkedin: "#", // TODO: paste real LinkedIn URL

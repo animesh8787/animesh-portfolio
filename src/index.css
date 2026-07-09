@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+/* Fonts load via <link> in index.html (preconnect + stylesheet) rather than
+   an @import here, so the browser can fetch them before it even parses this
+   file — one less render-blocking round trip. */
 
 @tailwind base;
 @tailwind components;
@@ -8,10 +10,12 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-graphite text-ink font-sans antialiased;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -63,7 +67,7 @@
   }
   .link-underline::after {
     content: "";
-    @apply absolute left-0 -bottom-0.5 w-0 h-px bg-signal transition-all duration-300;
+    @apply absolute left-0 -bottom-0.5 w-0 h-px bg-signal transition-all duration-300 ease-premium;
   }
   .link-underline:hover::after {
     @apply w-full;

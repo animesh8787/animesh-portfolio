@@ -17,20 +17,23 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-graphite/85 backdrop-blur-md border-b border-hairline" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-premium ${
+        scrolled ? "bg-graphite/75 backdrop-blur-lg border-b border-hairline" : "bg-transparent"
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-        <a href="#" className="font-display text-lg tracking-tight">
+        <a
+          href="#"
+          className="font-display text-lg tracking-tight text-ink transition-colors duration-300 hover:text-signal-bright"
+        >
           AD
         </a>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-5 sm:gap-8">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted hover:text-ink transition-colors link-underline"
+              className="text-sm text-muted hover:text-ink transition-colors duration-300 link-underline"
             >
               {l.label}
             </a>

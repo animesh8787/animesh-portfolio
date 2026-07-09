@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { EASE } from "../lib/motion";
 
 export default function About() {
   return (
@@ -8,9 +9,10 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
         >
           <p className="section-eyebrow mb-3">About</p>
-          <h2 className="font-display text-3xl md:text-4xl leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance">
             Why I build the way I build.
           </h2>
         </motion.div>
@@ -19,8 +21,8 @@ export default function About() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="space-y-5 text-ink/80 leading-relaxed text-[15px]"
+          transition={{ duration: 0.6, delay: 0.1, ease: EASE }}
+          className="space-y-6 text-ink/80 leading-[1.75] text-[15px]"
         >
           <p>
             I'm a Computer Science undergraduate at Thapar Institute of Engineering and

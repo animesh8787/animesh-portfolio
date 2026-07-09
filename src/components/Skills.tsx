@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { skills } from "../data/content";
+import { EASE } from "../lib/motion";
 
 export default function Skills() {
   return (
@@ -9,6 +10,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="section-eyebrow mb-3"
         >
           Toolbox
@@ -17,8 +19,8 @@ export default function Skills() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
-          className="font-display text-3xl md:text-4xl mb-12 max-w-xl"
+          transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
+          className="font-display text-3xl md:text-4xl mb-12 max-w-xl text-balance"
         >
           What I actually reach for.
         </motion.h2>
@@ -30,7 +32,7 @@ export default function Skills() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: EASE }}
             >
               <h3 className="font-mono text-xs tracking-wide uppercase text-signal-bright mb-3">
                 {category}
@@ -39,7 +41,7 @@ export default function Skills() {
                 {items.map((item) => (
                   <span
                     key={item}
-                    className="text-sm text-ink/80 bg-surface2 border border-hairline rounded-md px-2.5 py-1"
+                    className="text-sm text-ink/80 bg-surface2 border border-hairline rounded-md px-2.5 py-1 transition-colors duration-300 hover:text-ink hover:border-signal/40"
                   >
                     {item}
                   </span>
