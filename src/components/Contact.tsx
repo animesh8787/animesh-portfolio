@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowUp, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import { contact } from "../data/content";
 import { EASE } from "../lib/motion";
 
 export default function Contact() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
     <footer id="contact">
       <div className="max-w-5xl mx-auto px-6 md:px-10 py-24 md:py-28">
@@ -83,15 +81,7 @@ export default function Contact() {
           <span className="flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" /> {contact.location}
           </span>
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="group flex items-center gap-1.5 hover:text-ink active:text-ink transition-colors duration-300 py-2 px-1 -mx-1"
-          >
-            Back to top
-            <ArrowUp className="w-3.5 h-3.5 transition-transform duration-300 ease-premium group-hover:-translate-y-0.5" />
-          </button>
-          <span>Designed &amp; Built by Animesh Dhiman</span>
+          <span>Built by Animesh Dhiman</span>
         </div>
       </div>
     </footer>
