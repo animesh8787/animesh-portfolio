@@ -3,23 +3,9 @@ import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import PillButton from "./ui/PillButton";
+import NodeGraph from "./ui/NodeGraph";
 import { interests, contact } from "../data/content";
 import { EASE, staggerContainer, fadeUp } from "../lib/motion";
-
-// Fixed positions for the node graph — hand-placed, not random, so it reads
-// as a deliberate constellation rather than scattered clutter.
-const NODE_POS = [
-  { x: 50, y: 12 },
-  { x: 14, y: 34 },
-  { x: 86, y: 32 },
-  { x: 8, y: 68 },
-  { x: 92, y: 66 },
-  { x: 50, y: 88 },
-];
-
-const EDGES: [number, number][] = [
-  [0, 1], [0, 2], [1, 3], [2, 4], [3, 5], [4, 5], [0, 5], [1, 2],
-];
 
 export default function Hero() {
   const headerRef = useRef<HTMLElement>(null);
@@ -44,33 +30,7 @@ export default function Hero() {
       onMouseLeave={() => setParallax({ x: 0, y: 0 })}
       className="relative min-h-dvh flex items-center overflow-hidden border-b border-hairline"
     >
-      {/* ambient node graph background */}
-      <div
-        className="absolute inset-0 pointer-events-none transition-transform duration-300 ease-out"
-        style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
-      >
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full opacity-70">
-          {EDGES.map(([a, b], i) => (
-            <line
-              key={i}
-              x1={NODE_POS[a].x}
-              y1={NODE_POS[a].y}
-              x2={NODE_POS[b].x}
-              y2={NODE_POS[b].y}
-              stroke="#5B8DEF"
-              strokeWidth="0.08"
-              strokeOpacity="0.25"
-            />
-          ))}
-        </svg>
-        {NODE_POS.map((pos, i) => (
-          <div
-            key={i}
-            className="absolute w-1.5 h-1.5 rounded-full bg-signal/40 animate-drift"
-            style={{ left: `${pos.x}%`, top: `${pos.y}%`, animationDelay: `${i * 0.6}s` }}
-          />
-        ))}
-      </div>
+      <NodeGraph parallax={parallax} />
 
       <div className="relative max-w-5xl mx-auto px-6 md:px-10 py-32 w-full">
         <motion.div variants={staggerContainer(0.12, 0.05)} initial="hidden" animate="show">
@@ -121,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.6, ease: EASE }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-faint hover:text-muted transition-colors duration-300"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted hover:text-ink transition-colors duration-300 py-3 px-2"
         >
           <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Scroll</span>
           <ArrowDown className="w-3.5 h-3.5 animate-floatSoft" />

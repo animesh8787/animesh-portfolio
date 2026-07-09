@@ -39,7 +39,7 @@ export default function Contact() {
               href={contact.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2"
+              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2 active:bg-surface2"
             >
               <p className="section-eyebrow mb-3">LinkedIn</p>
               <div className="flex items-center gap-2.5 text-base sm:text-lg min-w-0">
@@ -55,7 +55,7 @@ export default function Contact() {
               <div className="flex items-center justify-between gap-3">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2.5 text-base sm:text-lg min-w-0 flex-1 text-ink hover:text-signal-bright transition-colors duration-300"
+                  className="flex items-center gap-2.5 text-base sm:text-lg min-w-0 flex-1 text-ink hover:text-signal-bright active:text-signal-bright transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4 text-signal-bright shrink-0" />
                   <span className="truncate min-w-0 flex-1" title={contact.email}>
@@ -66,7 +66,7 @@ export default function Contact() {
                   type="button"
                   onClick={() => copy(contact.email)}
                   aria-label="Copy email address"
-                  className="shrink-0 text-faint hover:text-signal-bright transition-colors duration-300 p-2 -m-2"
+                  className="shrink-0 text-muted hover:text-signal-bright active:scale-90 transition-all duration-300 p-2 -m-2"
                 >
                   {copied ? (
                     <Check className="w-4 h-4 text-sage-bright" />
@@ -81,7 +81,7 @@ export default function Contact() {
               href={contact.github}
               target="_blank"
               rel="noreferrer"
-              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2"
+              className="group p-6 transition-colors duration-300 ease-premium hover:bg-surface2 active:bg-surface2"
             >
               <p className="section-eyebrow mb-3">GitHub</p>
               <div className="flex items-center gap-2.5 text-base sm:text-lg min-w-0">
@@ -94,14 +94,14 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-8 mt-10 border-t border-hairline text-faint text-xs font-mono">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-8 mt-10 border-t border-hairline text-muted text-xs font-mono">
           <span className="flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5" /> {contact.location}
           </span>
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-muted transition-colors duration-300 py-2 px-1 -mx-1"
+            className="flex items-center gap-1.5 hover:text-ink active:text-ink transition-colors duration-300 py-2 px-1 -mx-1"
           >
             Back to top <ArrowUp className="w-3.5 h-3.5" />
           </button>

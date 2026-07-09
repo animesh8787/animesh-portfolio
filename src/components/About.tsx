@@ -26,10 +26,13 @@ export default function About() {
         >
           <p>
             I'm a Computer Science undergraduate at Thapar Institute of Engineering and
-            Technology, graduating in 2027. Most of my time goes into two things that turn
-            out to be closely related. Building AI systems that run reliably in production,
-            and understanding where those systems are likely to fail or behave in ways their
-            designer didn't anticipate.
+            Technology, graduating in 2027.
+          </p>
+          <p>
+            Most of my time goes into two things that turn out to be closely related.
+            Building AI systems that run reliably in production, and understanding where
+            those systems are likely to fail or behave in ways their designer didn't
+            anticipate.
           </p>
           <p>
             During a research internship, I benchmarked deep learning architectures for

@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Badge from "./ui/Badge";
+import ProjectPoint from "./ui/ProjectPoint";
 import { projects } from "../data/content";
 import { EASE } from "../lib/motion";
 
@@ -47,25 +49,17 @@ export default function OtherProjects() {
                 <p className="text-muted text-sm leading-relaxed mb-4 flex-1">{project.tagline}</p>
                 <ul className="space-y-2.5 mb-4">
                   {highlights.map((point, j) => (
-                    <li key={j} className="text-xs text-ink/70 leading-relaxed flex gap-2">
-                      <span className="text-signal shrink-0" aria-hidden="true">
-                        ›
-                      </span>
-                      <div>
-                        <p>{point.text}</p>
-                        {point.metric && <span className="metric-tag mt-1">{point.metric}</span>}
-                      </div>
-                    </li>
+                    <ProjectPoint key={j} text={point.text} metric={point.metric} size="sm" />
                   ))}
                 </ul>
                 <div className="flex flex-wrap gap-1.5 mt-auto pt-3 border-t border-hairline">
                   {visibleStack.map((s) => (
-                    <span key={s} className="font-mono text-[10px] text-faint">
+                    <span key={s} className="font-mono text-[10px] text-muted">
                       {s}
                     </span>
                   ))}
                   {hiddenStackCount > 0 && (
-                    <span className="font-mono text-[10px] text-faint/70">+{hiddenStackCount} more</span>
+                    <span className="font-mono text-[10px] text-muted/70">+{hiddenStackCount} more</span>
                   )}
                 </div>
               </motion.div>

@@ -1,25 +1,16 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
+import Badge from "./ui/Badge";
+import ProjectPoint from "./ui/ProjectPoint";
 import { projects } from "../data/content";
-import { EASE } from "../lib/motion";
+import { EASE, fadeUp, staggerContainer } from "../lib/motion";
 
 const featured = projects.filter((p) => p.featured);
 const STACK_PREVIEW_COUNT = 4;
 
-function PointRow({ point }: { point: { text: string; metric: string | null } }) {
-  return (
-    <li className="flex gap-3 text-sm leading-relaxed text-ink/85">
-      <span className="text-signal mt-1 shrink-0" aria-hidden="true">
-        ›
-      </span>
-      <div>
-        <p>{point.text}</p>
-        {point.metric && <span className="metric-tag mt-1.5">{point.metric}</span>}
-      </div>
-    </li>
-  );
-}
+type Point = { text: string; metric: string | null; highlight: boolean };
+type Project = (typeof featured)[number];
 
 export default function FeaturedProjects() {
   return (
@@ -71,9 +62,6 @@ export default function FeaturedProjects() {
   );
 }
 
-type Point = { text: string; metric: string | null; highlight: boolean };
-type Project = (typeof featured)[number];
-
 function ProjectCard({
   idx,
   project,
@@ -103,25 +91,23 @@ function ProjectCard({
       className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12"
     >
       <div>
-        <span className="font-mono text-xs text-faint">{String(idx + 1).padStart(2, "0")}</span>
+        <span className="font-mono text-xs text-muted">{String(idx + 1).padStart(2, "0")}</span>
         <h3 className="font-display text-2xl md:text-3xl mt-2 mb-3">{project.name}</h3>
         <p className="text-muted text-sm leading-relaxed mb-5">{project.tagline}</p>
         <div className="flex flex-wrap gap-1.5 mb-5">
           {visibleStack.map((s) => (
-            <span key={s} className="font-mono text-[11px] text-muted bg-surface2 border border-hairline rounded px-2 py-1">
-              {s}
-            </span>
+            <Badge key={s}>{s}</Badge>
           ))}
           {hiddenStackCount > 0 && (
-            <button
-              type="button"
+            <Badge
+              as="button"
+              variant="accent"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls={detailsId}
-              className="font-mono text-[11px] text-signal-bright bg-signal/10 border border-signal/25 rounded px-2 py-1 hover:bg-signal/15 transition-colors duration-300"
             >
               +{hiddenStackCount} more
-            </button>
+            </Badge>
           )}
         </div>
         {project.links.site && (
@@ -139,7 +125,7 @@ function ProjectCard({
       <div className="card p-6 md:p-7 transition-all duration-500 ease-premium hover:border-signal/25 hover:shadow-glow">
         <ul className="space-y-3.5">
           {highlights.map((point, i) => (
-            <PointRow key={i} point={point} />
+            <ProjectPoint key={i} text={point.text} metric={point.metric} />
           ))}
         </ul>
 
@@ -149,33 +135,32 @@ function ProjectCard({
               {open && (
                 <motion.div
                   id={detailsId}
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: EASE }}
+                  initial={{ height: 0 }}
+                  animate={{ height: "auto", transition: { duration: 0.45, ease: EASE } }}
+                  exit={{ height: 0, transition: { duration: 0.3, ease: EASE } }}
                   className="overflow-hidden"
                 >
-                  <div className="pt-3.5 mt-3.5 border-t border-hairline">
+                  <motion.div
+                    variants={staggerContainer(0.06)}
+                    initial="hidden"
+                    animate="show"
+                    className="pt-4 mt-4 border-t border-hairline"
+                  >
                     {hiddenStackCount > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mb-4">
+                      <motion.div variants={fadeUp} className="flex flex-wrap gap-1.5 mb-4">
                         {project.stack.slice(STACK_PREVIEW_COUNT).map((s) => (
-                          <span
-                            key={s}
-                            className="font-mono text-[11px] text-muted bg-surface2 border border-hairline rounded px-2 py-1"
-                          >
-                            {s}
-                          </span>
+                          <Badge key={s}>{s}</Badge>
                         ))}
-                      </div>
+                      </motion.div>
                     )}
                     {rest.length > 0 && (
-                      <ul className="space-y-3.5">
+                      <motion.ul variants={fadeUp} className="space-y-3.5">
                         {rest.map((point, i) => (
-                          <PointRow key={i} point={point} />
+                          <ProjectPoint key={i} text={point.text} metric={point.metric} />
                         ))}
-                      </ul>
+                      </motion.ul>
                     )}
-                  </div>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -186,10 +171,10 @@ function ProjectCard({
                 onClick={() => setOpen((v) => !v)}
                 aria-expanded={open}
                 aria-controls={detailsId}
-                className="mt-2 -ml-2 inline-flex items-center gap-1.5 font-mono text-xs tracking-wide text-muted hover:text-signal-bright transition-colors duration-300 px-2 py-2.5"
+                className="mt-3 -ml-2 inline-flex items-center gap-1.5 font-mono text-xs tracking-wide text-muted hover:text-signal-bright transition-colors duration-300 ease-premium px-2 py-2.5"
               >
                 <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ease-premium ${open ? "rotate-180" : ""}`}
                   aria-hidden="true"
                 />
                 {open ? "Hide technical details" : "Technical details"}

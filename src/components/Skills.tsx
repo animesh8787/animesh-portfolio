@@ -25,7 +25,7 @@ export default function Skills() {
           What I actually reach for.
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8">
+        <div className="grid sm:grid-cols-2 gap-x-10 gap-y-10">
           {Object.entries(skills).map(([category, items], i) => (
             <motion.div
               key={category}
@@ -34,10 +34,11 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06, ease: EASE }}
             >
-              <h3 className="font-mono text-xs tracking-wide uppercase text-signal-bright mb-3">
+              <h3 className="flex items-center gap-2 font-mono text-xs tracking-wide uppercase text-signal-bright mb-3.5">
+                <span className="w-2.5 h-px bg-signal-bright/50" aria-hidden="true" />
                 {category}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {items.map((item) => (
                   <span
                     key={item}
