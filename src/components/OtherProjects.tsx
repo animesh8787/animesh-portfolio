@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import ProjectPoint from "./ui/ProjectPoint";
+import { GithubIcon } from "./BrandIcons";
 import { projects } from "../data/content";
 import { EASE } from "../lib/motion";
 
@@ -9,7 +11,7 @@ const STACK_PREVIEW_COUNT = 4;
 export default function OtherProjects() {
   return (
     <section className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-20">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,6 +48,30 @@ export default function OtherProjects() {
               >
                 <h3 className="font-display text-xl mb-2">{project.name}</h3>
                 <p className="text-muted text-sm leading-relaxed mb-4 flex-1">{project.tagline}</p>
+                {(project.links.site || project.links.repo) && (
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-4">
+                    {project.links.site && (
+                      <a
+                        href={project.links.site}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-signal-bright text-xs link-underline"
+                      >
+                        Visit site <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                      </a>
+                    )}
+                    {project.links.repo && (
+                      <a
+                        href={project.links.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-signal-bright text-xs link-underline"
+                      >
+                        View repo <GithubIcon className="w-3 h-3" />
+                      </a>
+                    )}
+                  </div>
+                )}
                 <ul className="space-y-2.5 mb-4">
                   {highlights.map((point, j) => (
                     <ProjectPoint key={j} text={point.text} metric={point.metric} size="sm" />

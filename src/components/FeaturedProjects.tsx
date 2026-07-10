@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import Badge from "./ui/Badge";
 import ProjectPoint from "./ui/ProjectPoint";
+import { GithubIcon } from "./BrandIcons";
 import { projects } from "../data/content";
 import { EASE, fadeUp, staggerContainer } from "../lib/motion";
 
@@ -15,7 +16,7 @@ type Project = (typeof featured)[number];
 export default function FeaturedProjects() {
   return (
     <section id="work" className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-20">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +31,7 @@ export default function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
-          className="font-display text-3xl md:text-4xl mb-16 max-w-xl text-balance"
+          className="font-display text-3xl md:text-4xl mb-12 max-w-xl text-balance"
         >
           Two projects I'd want you to read closely.
         </motion.h2>
@@ -81,6 +82,7 @@ function ProjectCard({
 }) {
   const [open, setOpen] = useState(false);
   const detailsId = `tech-details-${project.id}`;
+  const isFlagship = project.id === "jarvis";
 
   return (
     <motion.article
@@ -92,7 +94,9 @@ function ProjectCard({
     >
       <div>
         <span className="font-mono text-xs text-muted">{String(idx + 1).padStart(2, "0")}</span>
-        <h3 className="font-display text-2xl md:text-3xl mt-2 mb-3">{project.name}</h3>
+        <h3 className={`font-display text-2xl md:text-3xl mt-2 mb-3 ${isFlagship ? "font-medium" : ""}`}>
+          {project.name}
+        </h3>
         <p className="text-muted text-sm leading-relaxed mb-5">{project.tagline}</p>
         <div className="flex flex-wrap gap-1.5 mb-5">
           {visibleStack.map((s) => (
@@ -110,19 +114,39 @@ function ProjectCard({
             </Badge>
           )}
         </div>
-        {project.links.site && (
-          <a
-            href={project.links.site}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-signal-bright text-sm link-underline"
-          >
-            Visit site <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
-          </a>
+        {(project.links.site || project.links.repo) && (
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {project.links.site && (
+              <a
+                href={project.links.site}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-signal-bright text-sm link-underline"
+              >
+                Visit site <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+              </a>
+            )}
+            {project.links.repo && (
+              <a
+                href={project.links.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-signal-bright text-sm link-underline"
+              >
+                View repo <GithubIcon className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
         )}
       </div>
 
-      <div className="card p-6 md:p-7 transition-all duration-500 ease-premium hover:border-signal/25 hover:shadow-glow">
+      <div
+        className={`card p-6 md:p-7 transition-all duration-500 ease-premium ${
+          isFlagship
+            ? "border-signal/15 hover:border-signal/40 hover:shadow-glowLg"
+            : "hover:border-signal/25 hover:shadow-glow"
+        }`}
+      >
         <ul className="space-y-3.5">
           {highlights.map((point, i) => (
             <ProjectPoint key={i} text={point.text} metric={point.metric} />
@@ -171,7 +195,7 @@ function ProjectCard({
                 onClick={() => setOpen((v) => !v)}
                 aria-expanded={open}
                 aria-controls={detailsId}
-                className="mt-3 -ml-2 inline-flex items-center gap-1.5 font-mono text-xs tracking-wide text-muted hover:text-signal-bright transition-colors duration-300 ease-premium px-2 py-2.5"
+                className="mt-3 -ml-2 inline-flex items-center gap-1.5 rounded-md font-mono text-xs tracking-wide text-muted hover:text-signal-bright hover:bg-surface2/60 transition-colors duration-300 ease-premium px-2 py-2.5"
               >
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-300 ease-premium ${open ? "rotate-180" : ""}`}

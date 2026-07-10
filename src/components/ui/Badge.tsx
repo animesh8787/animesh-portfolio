@@ -22,7 +22,7 @@ export default function Badge({
       ? "text-signal-bright bg-signal/10 border-signal/25 hover:bg-signal/15"
       : "text-muted bg-surface2 border-hairline";
 
-  const base = `font-mono text-[11px] tracking-wide border rounded px-2 py-1 transition-colors duration-300 ${styles} ${className}`;
+  const base = `font-mono text-[11px] tracking-wide border rounded px-2 py-1 transition-colors duration-300 ease-premium ${styles} ${className}`;
 
   if (as === "button") {
     return (

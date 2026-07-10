@@ -4,7 +4,7 @@ import { EASE } from "../lib/motion";
 export default function About() {
   return (
     <section id="about" className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-24 grid md:grid-cols-[0.8fr_1.2fr] gap-12">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-20 grid md:grid-cols-[0.8fr_1.2fr] gap-12">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +26,7 @@ export default function About() {
         >
           <p>
             I'm a Computer Science undergraduate at Thapar Institute of Engineering and
-            Technology, graduating in 2027.
+            Technology.
           </p>
           <p>
             Most of my time goes into two things that turn out to be closely related.

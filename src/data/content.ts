@@ -7,6 +7,9 @@ export const interests = [
   "Empirical ML Research",
 ];
 
+// To link a project to its live site and/or GitHub repo, just paste the URL
+// into that project's `links` object below — e.g. `links: { repo: "https://github.com/you/repo" }`.
+// Leave a field as an empty string ("") to hide that link until you have one.
 export const projects = [
   {
     id: "jarvis",
@@ -42,7 +45,7 @@ export const projects = [
         highlight: false,
       },
     ],
-    links: { site: "https://ashwatthama.dev" },
+    links: { site: "https://ashwatthama.dev", repo: "" },
   },
   {
     id: "crack-detection",
@@ -73,7 +76,7 @@ export const projects = [
         highlight: false,
       },
     ],
-    links: {},
+    links: { site: "", repo: "" },
   },
   {
     id: "resume-screening",
@@ -99,7 +102,7 @@ export const projects = [
         highlight: false,
       },
     ],
-    links: {},
+    links: { site: "", repo: "" },
   },
   {
     id: "devrelease",
@@ -125,7 +128,7 @@ export const projects = [
         highlight: true,
       },
     ],
-    links: {},
+    links: { site: "", repo: "" },
   },
   {
     id: "solar",
@@ -145,7 +148,7 @@ export const projects = [
         highlight: true,
       },
     ],
-    links: {},
+    links: { site: "", repo: "" },
   },
 ];
 
@@ -157,10 +160,13 @@ export const skills = {
   Tooling: ["Git", "GitHub Actions", "Electron", "PyInstaller", "Docker-adjacent workflows"],
 };
 
-export const stats = [
-  { value: "200+", label: "LeetCode problems solved" },
+// Add an `href` to any stat to make it clickable (opens in a new tab) — e.g.
+// point "LeetCode problems solved" at your real profile URL below. Stats
+// without an `href` just render as plain text, same as before.
+export const stats: { value: string; label: string; href?: string }[] = [
+  { value: "200+", label: "LeetCode problems solved", href: "https://leetcode.com/u/your-username/" },
   { value: "99.9%", label: "peak model validation accuracy" },
-  { value: "1", label: "paper under review at Elsevier" },
+  { value: "1", label: "Research Paper\nUnder Review" },
 ];
 
 export const contact = {

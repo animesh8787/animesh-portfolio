@@ -5,7 +5,7 @@ import { EASE } from "../lib/motion";
 export default function Skills() {
   return (
     <section className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-20">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function Skills() {
                 {items.map((item) => (
                   <span
                     key={item}
-                    className="text-sm text-ink/80 bg-surface2 border border-hairline rounded-md px-2.5 py-1 transition-colors duration-300 hover:text-ink hover:border-signal/40"
+                    className="text-sm text-ink/80 bg-surface2 border border-hairline rounded-md px-2.5 py-1 transition-colors duration-300 ease-premium hover:text-ink hover:border-signal/40"
                   >
                     {item}
                   </span>

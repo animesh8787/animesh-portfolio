@@ -16,10 +16,6 @@ export default {
           bright: "#7DA6F5",
           dim: "#3D5FA3",
         },
-        sage: {
-          DEFAULT: "#7C9885",
-          bright: "#9BB5A2",
-        },
       },
       fontFamily: {
         display: ["'Newsreader'", "serif"],
@@ -42,24 +38,9 @@ export default {
           "0%, 100%": { transform: "translate(0,0)" },
           "50%": { transform: "translate(8px,-6px)" },
         },
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        floatSoft: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(6px)" },
-        },
-        pulseGlow: {
-          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.06)" },
-        },
       },
       animation: {
         drift: "drift 7s ease-in-out infinite",
-        fadeUp: "fadeUp 0.6s ease-out forwards",
-        floatSoft: "floatSoft 2.6s ease-in-out infinite",
-        pulseGlow: "pulseGlow 6s ease-in-out infinite",
       },
     },
   },

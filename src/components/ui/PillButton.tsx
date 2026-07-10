@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
+import { EASE } from "../../lib/motion";
 
 type PillButtonProps = {
   href: string;
@@ -38,11 +39,12 @@ export default function PillButton({
       rel={external ? "noreferrer" : undefined}
       whileHover={{ y: -2 }}
       whileTap={{ y: 0 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: EASE }}
       className={`inline-flex items-center gap-2 font-medium rounded-lg transition-colors duration-300 ease-premium ${sizing} ${palette} ${className}`}
     >
       {icon}
       {children}
+      {external && <span className="sr-only"> (opens in new tab)</span>}
     </motion.a>
   );
 }
