@@ -60,7 +60,8 @@ export default function About() {
             scoring engine; ArthSetu, a government business-identity platform built with two
             teammates for a hackathon, where I owned the review-queue and governance workflows;
             and Nexus OS, a personal engineering dashboard that auto-tracks my own LeetCode and
-            GitHub activity. I'm also a selected participant in Amazon ML Summer School 2026.
+            GitHub activity. I've also completed Amazon ML Summer School 2026 and hold a
+            certificate for it.
           </p>
         </motion.div>
       </div>

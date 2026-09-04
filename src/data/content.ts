@@ -192,26 +192,6 @@ export const projects = [
     ],
     links: { site: "", repo: "https://github.com/animesh8787/AI-powered-Industrial-Knowledge-Intelligence-Platform" },
   },
-  {
-    id: "solar",
-    name: "Solar Panel Efficiency Predictor",
-    tagline: "A regression pipeline predicting panel efficiency from environmental sensor data.",
-    stack: ["XGBoost", "LightGBM", "CatBoost", "Optuna", "SHAP"],
-    featured: false,
-    points: [
-      {
-        text: "Ensemble stacking across three gradient-boosting models, with SHAP-driven feature selection to cut overfitting.",
-        metric: "89.89% R²",
-        highlight: true,
-      },
-      {
-        text: "GPU-accelerated Bayesian hyperparameter search with Optuna.",
-        metric: "60%+ faster tuning",
-        highlight: true,
-      },
-    ],
-    links: { site: "", repo: "" },
-  },
 ];
 
 export const skills = {
@@ -243,9 +223,10 @@ export const experience = [
 // without an `href` just render as plain text, same as before.
 export const stats: { value: string; label: string; href?: string }[] = [
   { value: "4", label: "Products shipped\n& deployed live" },
-  { value: "99.9%", label: "peak model\nvalidation accuracy" },
-  { value: "1", label: "Research Paper\nUnder Review" },
   { value: "200+", label: "LeetCode problems\nsolved" },
+  { value: "1", label: "Research Paper\nUnder Review" },
+  { value: "Top 6%", label: "Zelestra - AWS ML\nAscend Challenge 2025" },
+  { value: "Top 25", label: "Global rank,\nShell.ai Hackathon 2025" },
 ];
 
 export const contact = {

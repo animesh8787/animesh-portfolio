@@ -54,7 +54,7 @@ function StatItem({
 export default function Stats() {
   return (
     <section className="border-b border-hairline">
-      <div className="max-w-5xl mx-auto px-6 md:px-10 py-12 grid grid-cols-3 gap-6 md:gap-8">
+      <div className="max-w-5xl mx-auto px-6 md:px-10 py-12 grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-nowrap md:justify-between md:gap-0">
         <h2 className="sr-only">Highlights</h2>
         {stats.map((s, i) => (
           <StatItem key={s.label} value={s.value} label={s.label} href={s.href} delay={i * 0.08} />
