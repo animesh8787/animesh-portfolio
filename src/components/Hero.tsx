@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./BrandIcons";
 import PillButton from "./ui/PillButton";
 import NodeGraph from "./ui/NodeGraph";
@@ -90,6 +90,14 @@ export default function Hero() {
             </PillButton>
             <PillButton href={contact.linkedin} icon={<LinkedinIcon className="w-4 h-4" />} external>
               LinkedIn
+            </PillButton>
+            <PillButton
+              href={contact.resume}
+              icon={<FileText className="w-4 h-4" aria-hidden="true" />}
+              variant="solid"
+              external
+            >
+              Resume
             </PillButton>
           </motion.div>
         </motion.div>

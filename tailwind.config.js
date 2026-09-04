@@ -12,9 +12,9 @@ export default {
         muted: "#9297A1",
         faint: "#5B6068",
         signal: {
-          DEFAULT: "#5B8DEF",
-          bright: "#7DA6F5",
-          dim: "#3D5FA3",
+          DEFAULT: "#12B886",
+          bright: "#3DDC9A",
+          dim: "#0B6E52",
         },
       },
       fontFamily: {
@@ -23,8 +23,8 @@ export default {
         mono: ["'IBM Plex Mono'", "monospace"],
       },
       boxShadow: {
-        glow: "0 0 32px rgba(91,141,239,0.18)",
-        glowLg: "0 0 64px rgba(91,141,239,0.16)",
+        glow: "0 0 32px rgba(18,184,134,0.18)",
+        glowLg: "0 0 64px rgba(18,184,134,0.16)",
         card: "0 4px 24px rgba(0,0,0,0.35)",
       },
       transitionTimingFunction: {

@@ -20,7 +20,7 @@ const EDGES: [number, number][] = [
 // as "engineering blueprint" without asking for any attention of its own.
 const GRID_STYLE: CSSProperties = {
   backgroundImage:
-    "linear-gradient(to right, rgba(91,141,239,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(91,141,239,0.05) 1px, transparent 1px)",
+    "linear-gradient(to right, rgba(18,184,134,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(18,184,134,0.06) 1px, transparent 1px)",
   backgroundSize: "44px 44px",
   maskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 75%)",
   WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, black 0%, transparent 75%)",
@@ -55,7 +55,7 @@ export default function NodeGraph({ parallax }: NodeGraphProps) {
               y1={NODE_POS[a].y}
               x2={NODE_POS[b].x}
               y2={NODE_POS[b].y}
-              stroke="#5B8DEF"
+              stroke="#12B886"
               strokeWidth="0.08"
               strokeOpacity="0.25"
             />

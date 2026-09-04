@@ -45,7 +45,69 @@ export const projects = [
         highlight: false,
       },
     ],
-    links: { site: "https://ashwatthama.dev", repo: "" },
+    links: { site: "https://www.ashwatthama.dev", repo: "" },
+  },
+  {
+    id: "talentrank",
+    name: "TalentRank",
+    tagline:
+      "Explainable resume screening, rebuilt from an academic NLP prototype into a working product: rank applicants against a role and see exactly which skills, experience, and resume evidence produced every score.",
+    stack: ["FastAPI", "React", "TypeScript", "Sentence-Transformers", "Firebase Auth", "SQLAlchemy"],
+    featured: true,
+    points: [
+      {
+        text: "Five-dimension explainable scorer (skills, experience, education, relevance, location), each dimension returning a reason, not just a number — so the UI can answer \"why is this person ranked third?\"",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Live weight tuning: drag a slider, watch the ranking reorder instantly with ▲▼ deltas, nothing saved until applied.",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Semantic matching via sentence-transformers, with an automatic TF-IDF fallback so scores stay comparable even offline.",
+        metric: null,
+        highlight: false,
+      },
+      {
+        text: "Kanban hiring pipeline with drag-and-drop, a bias-reduced \"blind review\" mode that redacts names/contact/university server-side, and a full audit log.",
+        metric: null,
+        highlight: false,
+      },
+    ],
+    links: { site: "https://frontend-lake-phi-56.vercel.app", repo: "https://github.com/animesh8787/TalentRank" },
+  },
+  {
+    id: "arthsetu",
+    name: "ArthSetu",
+    tagline:
+      "A team-built government platform that resolves the same business scattered across labour, municipal, pollution, and utility records into one trusted identity — built with 2 teammates for a hackathon.",
+    stack: ["FastAPI", "React", "TypeScript", "SQLAlchemy", "RapidFuzz", "Docker"],
+    featured: true,
+    points: [
+      {
+        text: "Built as Product & Governance Workflow Engineer on a 3-person team, owning the review-queue workflow, business-profile views, and district analytics.",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Explainable UBID identity resolution: every auto-link stores a confidence score and its evidence (GSTIN match, name similarity, PIN code), never silently merging uncertain records.",
+        metric: null,
+        highlight: true,
+      },
+      {
+        text: "Human-in-the-loop review queue: reviewers approve, reject, split, or override every medium-confidence match, with the outcome feeding back into calibration.",
+        metric: null,
+        highlight: false,
+      },
+      {
+        text: "Activity-inference engine classifies each business as Active, Dormant, or Closed from inspections, filings, and utility signals, with a plain-language reason attached to every status.",
+        metric: null,
+        highlight: false,
+      },
+    ],
+    links: { site: "https://arth-setu-six.vercel.app", repo: "https://github.com/animesh8787/ArthSetu" },
   },
   {
     id: "crack-detection",
@@ -53,7 +115,7 @@ export const projects = [
     tagline:
       "Research internship work on real-time structural health monitoring. Benchmarked deep learning models for crack detection, co-authored into a paper now under review at Elsevier.",
     stack: ["PyTorch", "ResNet50", "VGG19-UNet", "YOLOv7", "OpenCV"],
-    featured: true,
+    featured: false,
     points: [
       {
         text: "Benchmarked a custom DCNN, VGG19-UNet, and ResNet50-UNet for binary crack classification on a 40,000-image dataset.",
@@ -79,56 +141,56 @@ export const projects = [
     links: { site: "", repo: "" },
   },
   {
-    id: "resume-screening",
-    name: "AI-Driven Resume Screening System",
+    id: "nexus-os",
+    name: "Nexus OS",
     tagline:
-      "An NLP pipeline that reads unstructured resumes and scores candidates against a role. Built it twice, once in Python and FastAPI, once in Java and Spring, to compare how each architecture held up.",
-    stack: ["Python", "FastAPI", "HuggingFace Transformers", "spaCy", "PostgreSQL"],
+      "A personal engineering dashboard: auto-tracks LeetCode and GitHub activity, auto-commits solved problems via a browser extension, and aggregates a live job feed from 38+ company ATS boards.",
+    stack: ["JavaScript", "GitHub Actions", "GitHub API", "Chrome/Firefox Extension"],
     featured: false,
     points: [
       {
-        text: "Transformer embeddings and spaCy NER extract skills, experience, and projects from raw resume text.",
+        text: "Browser extension reads accepted LeetCode submissions and auto-commits the solution to GitHub, zero clicks, so every solve counts toward a real contribution graph.",
         metric: null,
         highlight: true,
       },
       {
-        text: "Custom scoring pipeline cut manual screening time.",
-        metric: "70%+ reduction",
+        text: "Job feed polls 38+ Greenhouse/Ashby company boards plus aggregators, scores each posting against skills pulled from my resume, and links straight to the real application page.",
+        metric: null,
         highlight: true,
       },
       {
-        text: "Stateless, horizontally scalable FastAPI service with a PostgreSQL backend, optimized indexes and CTEs.",
+        text: "A daily GitHub Actions agent refreshes the feed and redeploys the static site at 08:00 IST, replacing what used to be a Windows scheduled task.",
         metric: null,
         highlight: false,
       },
     ],
-    links: { site: "", repo: "" },
+    links: { site: "https://animesh8787.github.io/nexus-os", repo: "https://github.com/animesh8787/nexus-os" },
   },
   {
-    id: "devrelease",
-    name: "DevRelease Tracker",
+    id: "opsbrain",
+    name: "OPSBRAIN",
     tagline:
-      "A release-management dashboard that mirrors real DevSecOps workflows: versioning, deployment states, environment tracking.",
-    stack: ["Java", "Spring Boot", "REST API", "React", "Hibernate/JPA"],
+      "An AI-powered industrial knowledge platform: turns engineering manuals and inspection reports into a searchable, citation-backed RAG system. Built for the ET AI Hackathon 2026.",
+    stack: ["FastAPI", "Next.js", "LangGraph", "ChromaDB", "Groq", "Ollama"],
     featured: false,
     points: [
       {
-        text: "Layered backend (Controller, Service, Repository) with full CRUD across projects, releases, and deployments.",
+        text: "Two-tier inference: primary responses through the Groq API, with automatic, transparent fallback to a locally hosted Ollama model on outage or rate limit.",
         metric: null,
         highlight: true,
       },
       {
-        text: "Deployment state machine (PENDING → IN_PROGRESS → SUCCESS/FAILED) with semantic versioning enforced via Bean Validation.",
+        text: "Document pipeline (OCR → parsing → semantic chunking → entity extraction → embeddings) runs as independently upgradeable stages over PostgreSQL and a ChromaDB vector store.",
         metric: null,
         highlight: false,
       },
       {
-        text: "React dashboard visualizes pipeline and deployment status in real time. Runs on H2 in development, MySQL-ready for production.",
+        text: "Every generated answer maps back to the exact source page it was grounded in, through a citation-aware RAG pipeline.",
         metric: null,
         highlight: true,
       },
     ],
-    links: { site: "", repo: "" },
+    links: { site: "", repo: "https://github.com/animesh8787/AI-powered-Industrial-Knowledge-Intelligence-Platform" },
   },
   {
     id: "solar",
@@ -153,20 +215,37 @@ export const projects = [
 ];
 
 export const skills = {
-  Languages: ["Python", "Java", "C++", "C", "SQL", "TypeScript"],
+  Languages: ["Python", "TypeScript", "JavaScript", "C++", "C", "SQL"],
   "ML / Deep Learning": ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "XGBoost", "LightGBM", "CatBoost", "Optuna", "SHAP"],
-  "Vision & NLP": ["CNNs", "ResNet50", "YOLOv7", "VGG19", "UNet", "OpenCV", "HuggingFace Transformers", "spaCy", "NLTK"],
-  "Backend & Data": ["FastAPI", "Spring Boot", "REST APIs", "WebSockets", "PostgreSQL", "MySQL", "SQLAlchemy", "Hibernate/JPA"],
-  Tooling: ["Git", "GitHub Actions", "Electron", "PyInstaller", "Docker-adjacent workflows"],
+  "Vision & GenAI": ["CNNs", "ResNet50", "YOLOv7", "VGG19", "UNet", "OpenCV", "HuggingFace Transformers", "spaCy", "NLTK", "LangGraph", "Sentence-Transformers"],
+  "Backend & Data": ["FastAPI", "Next.js", "REST APIs", "WebSockets", "PostgreSQL", "SQLite", "MySQL", "SQLAlchemy", "ChromaDB", "Firebase Auth"],
+  "Tools & Infra": ["Git", "GitHub Actions", "Electron", "PyInstaller", "Docker", "Vercel", "Render", "Groq / Ollama"],
 };
+
+export const experience = [
+  {
+    company: "Thapar Institute of Engineering and Technology",
+    role: "Research Intern",
+    location: "Patiala, Punjab",
+    period: "Jun 2024 – Jul 2024",
+    points: [
+      "Benchmarked custom DCNN, VGG19-UNet, and ResNet50-UNet architectures for binary crack classification on a 40,000-image dataset; ResNet50 reached 99.9% validation accuracy.",
+      "Designed an augmentation pipeline (CLAHE, RandomResizedCrop, Otsu thresholding, ColorJitter) to improve generalization on the crack-classification dataset.",
+      "Integrated the best-performing model into a real-time YOLOv7 detection pipeline on an NVIDIA RTX 2080 Ti, reaching 97.7% mAP over 100+ training epochs.",
+      "Automated crack-width measurement and alerting via OpenCV contour analysis, aligned with IRC:SP:83 infrastructure-inspection standards.",
+      "Co-authored a paper on deep learning-based infrastructure monitoring, submitted to Elsevier and currently under review.",
+    ],
+  },
+];
 
 // Add an `href` to any stat to make it clickable (opens in a new tab) — e.g.
 // point "LeetCode problems solved" at your real profile URL below. Stats
 // without an `href` just render as plain text, same as before.
 export const stats: { value: string; label: string; href?: string }[] = [
-  { value: "200+", label: "LeetCode problems solved", href: "https://leetcode.com/u/your-username/" },
-  { value: "99.9%", label: "peak model validation accuracy" },
+  { value: "4", label: "Products shipped\n& deployed live" },
+  { value: "99.9%", label: "peak model\nvalidation accuracy" },
   { value: "1", label: "Research Paper\nUnder Review" },
+  { value: "200+", label: "LeetCode problems\nsolved" },
 ];
 
 export const contact = {
@@ -175,4 +254,5 @@ export const contact = {
   location: "Una, Himachal Pradesh, India",
   linkedin: "https://www.linkedin.com/in/animesh-dhiman-658250311/",
   github: "https://github.com/animesh8787",
+  resume: "/Animesh_Dhiman_Resume.pdf",
 };

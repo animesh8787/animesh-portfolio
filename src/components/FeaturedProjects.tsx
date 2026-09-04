@@ -33,7 +33,7 @@ export default function FeaturedProjects() {
           transition={{ duration: 0.6, delay: 0.05, ease: EASE }}
           className="font-display text-3xl md:text-4xl mb-12 max-w-xl text-balance"
         >
-          Two projects I'd want you to read closely.
+          Three shipped products I'd want you to read closely.
         </motion.h2>
 
         <div className="space-y-20">

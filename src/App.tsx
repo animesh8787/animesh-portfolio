@@ -1,6 +1,8 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
+import GitHubActivity from "./components/GitHubActivity";
+import Experience from "./components/Experience";
 import FeaturedProjects from "./components/FeaturedProjects";
 import OtherProjects from "./components/OtherProjects";
 import Skills from "./components/Skills";
@@ -20,6 +22,8 @@ export default function App() {
       <main id="main-content">
         <Hero />
         <Stats />
+        <GitHubActivity />
+        <Experience />
         <FeaturedProjects />
         <OtherProjects />
         <Skills />

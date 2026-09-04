@@ -54,6 +54,14 @@ export default function About() {
             intersection I keep finding myself at, rigorous measurement applied to systems
             complex enough to surprise you.
           </p>
+          <p>
+            Alongside Ashwatthama, I've shipped and deployed a handful of other things end to
+            end: TalentRank, an explainable resume-ranking tool with a live weight-tunable
+            scoring engine; ArthSetu, a government business-identity platform built with two
+            teammates for a hackathon, where I owned the review-queue and governance workflows;
+            and Nexus OS, a personal engineering dashboard that auto-tracks my own LeetCode and
+            GitHub activity. I'm also a selected participant in Amazon ML Summer School 2026.
+          </p>
         </motion.div>
       </div>
     </section>
