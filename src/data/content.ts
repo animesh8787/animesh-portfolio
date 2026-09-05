@@ -235,5 +235,5 @@ export const contact = {
   location: "Una, Himachal Pradesh, India",
   linkedin: "https://www.linkedin.com/in/animesh-dhiman-658250311/",
   github: "https://github.com/animesh8787",
-  resume: "/Animesh_Dhiman_Resume.pdf",
+  resume: "/ANIMESH_RESUME_MAIN.pdf",
 };
